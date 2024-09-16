@@ -8,32 +8,108 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <div class="w-full h-full bg-zinc-900 pt-10 text-white">
-            <div class="nav mb-10 pl-4">
-                <a class="text-blue-500" href="/read">Read Users</a>
+        <script>
+            document.getElementById('sidebarToggle').addEventListener('click', function() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('hidden');
+            });
+        </script>
+        
+    </head>
+    <body class="min-h-screen">
+        <div class="main22 flex min-h-screen">
+            <!-- Sidebar -->
+            <div class="h-screen w-64 bg-gray-800 text-white p-7 flex-col hidden md:flex">
+
+
+               
+
+                <button id="sidebarToggle" class="md:hidden p-4 bg-gray-800 text-white">
+                    <span class="material-icons">menu</span>
+                </button>
+                
+
+
+
+                <div class="nav mb-10 pl-4">
+                    <a class="font-bold text-lg"> ADMIN PANEL </a>
+                </div>
+                <nav class="mt-4">
+                    <ul>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a href="/read">View Courses</a>
+                        </li>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a>Create Course</a>
+                        </li>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a>Services</a>
+                        </li>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a>About</a>
+                        </li>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a>Contact</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <form action="/create" method="post">
-                <h1 class="text-3xl tracking-tighter mb-3 pl-4">Create User</h1>
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Coursename" name="Coursename">
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Department" name="Department">
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Duration" name="Duration">
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Eligibility" name="Eligibility"> 
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Fees" name="Fees"> 
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Intake" name="Intake">  
-                    <input class="py-2 px-5 bg-blue-600 rounded-md" type="submit" value="Create User">
-            </form>
+
+            <!-- Main Content -->
+            <div class="flex-1 p-8 bg-white-100">
+                <form action="/create" method="post">
+                    <h1 class="text-3xl font-bold mb-3 pt-0 pb-1 pl-4">Add New Course</h1>
+                    <hr class="w-full border-t-2 border-gray-300 my-4">
+                    
+                    <!-- Grid Layout for the Form -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-11">
+                        <div>
+                            <label for="Coursename" class="block text-gray-700">Course Name</label>
+                            <input
+                                class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                                type="text" placeholder="Coursename" name="Coursename" id="Coursename">
+                        </div>
+
+                        <div>
+                            <label for="Department" class="block text-gray-700">Department</label>
+                            <input
+                                class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                                type="text" placeholder="Department" name="Department">
+                        </div>
+
+                        <div>
+                            <label for="Duration" class="block text-gray-700">Duration</label>
+                            <input
+                                class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                                type="text" placeholder="Duration" name="Duration">
+                        </div>
+
+                        <div>
+                            <label for="Eligibility" class="block text-gray-700">Eligibility</label>
+                            <input
+                                class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                                type="text" placeholder="Eligibility" name="Eligibility">
+                        </div>
+
+                        <div>
+                            <label for="Fees" class="block text-gray-700">Fees</label>
+                            <input
+                                class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                                type="text" placeholder="Fees" name="Fees">
+                        </div>
+
+                        <div>
+                            <label for="Intake" class="block text-gray-700">Intake</label>
+                            <input
+                                class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                                type="text" placeholder="Intake" name="Intake">
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <input class="py-2 px-5 mt-6 bg-blue-600 rounded-md text-white hover:cursor-pointer" type="submit" value="Create Course">
+                </form>
+            </div>
         </div>
     </body>
 </html>

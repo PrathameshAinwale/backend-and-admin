@@ -6,33 +6,103 @@
         <title>Document</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            document.getElementById('sidebarToggle').addEventListener('click', function() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('hidden');
+            });
+        </script>
+        
     </head>
-    <body>
-        <div class="w-full h-full bg-zinc-900 pt-10 text-white">
-            <div class="nav mb-10 pl-4">
-                <a class="text-blue-500" href="/read">Read Users</a>
+    <body class="min-h-screen">
+        <div class="main22 flex min-h-screen">
+            <!-- Sidebar -->
+            <div class="h-screen w-64 bg-gray-800 text-white p-7 flex-col hidden md:flex">
+
+
+               
+
+                <button id="sidebarToggle" class="md:hidden p-4 bg-gray-800 text-white">
+                    <span class="material-icons">menu</span>
+                </button>
+                
+
+
+
+                <div class="nav mb-10 pl-4">
+                    <a class=" font-bold text-lg"> ADMIN PANEL </a>
+                </div>
+                <nav class="mt-4">
+                    <ul>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a href="/read">View Courses</a>
+                        </li>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a>Create Course</a>
+                        </li>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a>Services</a>
+                        </li>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a>About</a>
+                        </li>
+                        <li class="p-2 hover:bg-gray-600">
+                            <a>Contact</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
+        
+        <div class="flex-1 p-8 bg-white-100">
             <form action="/update/<%= users._id %>" method="post">
-                <h1 class="text-3xl tracking-tighter mb-3 pl-4">Update User</h1>
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Coursename" name="Coursename" value="<%= users.Coursename %>">
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Department" name="Department" value="<%= users.Department %>">
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Duration" name="Duration" value="<%= users.Duration %>">
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Eligibility" name="Eligibility" value="<%= users.Eligibility %>">
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Fees" name="Fees" value="<%= users.Fees %>">
-                <input
-                    class="border-zinc-300 py-2 px-5 m-6 rounded-lg bg-transparent"
-                    type="text" placeholder="Intake" name="Intake" value="<%= users.Intake %>">
-                    <input class="py-2 px-5 bg-yellow-600 rounded-md" type="submit" value="Update User">
+                <h1 class="text-3xl font-medium tracking-tighter mb-3 pl-4">Update Course Information</h1>
+                <hr class="w-full border-t-2 border-gray-300 my-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="Coursename" class="block text-gray-700">Course Name</label>
+                        <input
+                            class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                            type="text" placeholder="Coursename" name="Coursename" id="Coursename">
+                    </div>
+
+                    <div>
+                        <label for="Department" class="block text-gray-700">Department</label>
+                        <input
+                            class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                            type="text" placeholder="Department" name="Department">
+                    </div>
+
+                    <div>
+                        <label for="Duration" class="block text-gray-700">Duration</label>
+                        <input
+                            class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                            type="text" placeholder="Duration" name="Duration">
+                    </div>
+
+                    <div>
+                        <label for="Eligibility" class="block text-gray-700">Eligibility</label>
+                        <input
+                            class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                            type="text" placeholder="Eligibility" name="Eligibility">
+                    </div>
+
+                    <div>
+                        <label for="Fees" class="block text-gray-700">Fees</label>
+                        <input
+                            class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                            type="text" placeholder="Fees" name="Fees">
+                    </div>
+
+                    <div>
+                        <label for="Intake" class="block text-gray-700">Intake</label>
+                        <input
+                            class="border border-zinc-500 py-2 px-5 w-full rounded-lg bg-transparent hover:border-black hover:border-2"
+                            type="text" placeholder="Intake" name="Intake">
+                    </div>
+                </div>
+                
+                <br>
+                    <input class="py-2 px-5 bg-green-400 rounded-md text-white hover:cursor-pointer hover:bg-green-600" type="submit" value="Update Information">
             </form>
         </div>
     </body>
