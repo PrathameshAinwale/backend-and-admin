@@ -19,11 +19,9 @@ app.get('/read', async (req,res)=>{
 })
 
 app.post('/create', async (req,res)=>{
-    let {name, email, image} = req.body;
+    let {Coursename, Department, Duration, Eligibility, Fees, Intake} = req.body;
     let createduser= await userModel.create({
-        name:name,
-        email:email,
-        image:image
+        Coursename, Department, Duration, Eligibility, Fees, Intake
     })
     res.redirect('/read');
 })
@@ -39,8 +37,8 @@ app.get('/edit/:userid', async (req,res)=>{
 })
 
 app.post('/update/:userid', async (req,res)=>{
-    let {image,email,name}=req.body;
-    let users = await userModel.findOneAndUpdate({_id: req.params.userid},{image,email,name},{new:true});
+    let {Coursename, Department, Duration, Eligibility, Fees, Intake}=req.body;
+    let users = await userModel.findOneAndUpdate({_id: req.params.userid},{Coursename, Department, Duration, Eligibility, Fees, Intake},{new:true});
     res.redirect('/read');
 })
 
